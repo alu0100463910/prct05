@@ -1,6 +1,5 @@
 # Implementar en este fichero la clase para crear objetos racionales
-
-#require "./gcd.rb"
+require "../lib/gcd.rb"
 
 
 class Fraccion
@@ -17,6 +16,9 @@ class Fraccion
       @numerador = num.to_i
       @denominador = den.to_i
     end
+    max=gcd(@numerador,@denominador)
+    @numerador=@numerador/max
+    @denominador=@denominador/max
   end
   
   #  * `to_s`     #devuelve una cadena con la representación del racional
@@ -73,7 +75,7 @@ class Fraccion
   end
 end
 
-f=Fraccion.new(2,2)
+f=Fraccion.new(14,4)
 
 puts f
 
