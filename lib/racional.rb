@@ -1,6 +1,12 @@
 # Implementar en este fichero la clase para crear objetos racionales
-require "../lib/gcd.rb"
-
+#require "../lib/gcd.rb"
+def gcd(u, v)
+  u, v = u.abs, v.abs
+  while v != 0
+    u, v = v, u % v
+  end
+  u
+end
 
 class Fraccion
   attr_accessor :numerador, :denominador
@@ -46,7 +52,7 @@ class Fraccion
     if a.kind_of?(Fraccion)
       num = @numerador * a.denominador
       num_a = a.numerador * @denominador
-      Fraccion(num - num_a, @denominador*a.denominador)
+      Fraccion.new(num - num_a, @denominador*a.denominador)
     else
       puts "No es un numero racional"
     end
@@ -57,7 +63,7 @@ class Fraccion
     if a.kind_of?(Fraccion)
       num = @numerador * a.numerador
       den = @denominador * a.denominador
-      Fraccion(num, den)
+      Fraccion.new(num, den)
     else
       puts "No es un numero racional"
     end
@@ -68,7 +74,7 @@ class Fraccion
     if a.kind_of?(Fraccion)
       num = @numerador * a.denominador
       den = @denominador * a.numerador
-      Fraccion(num, den)
+      Fraccion.new(num, den)
     else
       puts "No es un numero racional"
     end
@@ -76,6 +82,7 @@ class Fraccion
 end
 
 f=Fraccion.new(14,4)
+#s=Fraccion.new(0,0)
 
 puts f
 
