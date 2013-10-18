@@ -1,10 +1,10 @@
 # Implementar en este fichero la clase para crear objetos racionales
 
-require "./gcd.rb"
+#require "./gcd.rb"
 
 
 class Fraccion
-
+  attr_accessor :numerador, :denominador
   def initialize(num, den)
     if den < 0
       num = -num
@@ -30,10 +30,10 @@ class Fraccion
   
   #    * `suma`     #devuelve un nuevo racional que suma al objeto que invoca el que le pasan como parámetro
   def suma(a)
-    if a.kind_of?(Rational)
-      num = @numerador * a.denominator
-      num_a = a.numerator * @denominador
-      Rational(num + num_a, @denominador * a.denominator)
+    if a.kind_of?(Fraccion)
+      num = @numerador * a.denominador
+      num_a = a.numerador * @denominador
+      Fraccion.new(num + num_a, @denominador * a.denominador)
     else
       puts "No es un numero racional"
     end
@@ -41,10 +41,10 @@ class Fraccion
   
   #    * `resta`    #devuelve un nuevo racional que resta al objeto que invoca el que le pasan como parámetro 
   def resta(a)
-    if a.kind_of?(Rational)
-      num = @numerador * a.denominator
-      num_a = a.numerator * @denominador
-      Rational(num - num_a, @denominador*a.denominator)
+    if a.kind_of?(Fraccion)
+      num = @numerador * a.denominador
+      num_a = a.numerador * @denominador
+      Fraccion(num - num_a, @denominador*a.denominador)
     else
       puts "No es un numero racional"
     end
@@ -52,10 +52,10 @@ class Fraccion
 
   #    * `producto` #devuelve un nuevo racional que multiplica al objeto que invoca el que le pasan como parámetro
   def producto(a)
-    if a.kind_of?(Rational)
-      num = @numerador * a.numerator
-      den = @denominador * a.denominator
-      Rational(num, den)
+    if a.kind_of?(Fraccion)
+      num = @numerador * a.numerador
+      den = @denominador * a.denominador
+      Fraccion(num, den)
     else
       puts "No es un numero racional"
     end
@@ -63,10 +63,10 @@ class Fraccion
   
   #    * `division` #devuelve un nuevo racional que multiplica al objeto que invoca el que le pasan como parámetro
   def division(a)
-    if a.kind_of?(Rational)
-      num = @numerador * a.denominator
-      den = @denominador * a.numerator
-      Rational(num, den)
+    if a.kind_of?(Fraccion)
+      num = @numerador * a.denominador
+      den = @denominador * a.numerador
+      Fraccion(num, den)
     else
       puts "No es un numero racional"
     end
